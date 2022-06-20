@@ -47,7 +47,7 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard}:{
     return (
     <div id = "button">
         <button onClick={handleClick}>Button</button>
-     </div>
+    </div>
 )}
 
 const mapStateToProps = (state:any) => ({ counter: state.counter.counter, level: state.level.level });

@@ -3,6 +3,7 @@ import './App.css';
 import Button from './button/Button';
 import Counter from './counter/Counter';
 import Switcher from './switcher/Switcher';
+import OverdriveTimer from './overdriveTimer/OverdriveTimer';
 import { Provider } from 'react-redux'
 import store from './redux/store';
 
@@ -14,6 +15,7 @@ function App() {
       </header>
       <Provider store = {store}>
       <main id ="main">
+      <OverdriveTimer/>
       <Counter/>
       <Button/>
       <Switcher/>

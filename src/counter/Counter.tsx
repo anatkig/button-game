@@ -1,10 +1,11 @@
 import React from 'react';
 import './counter.css';
 import { connect } from 'react-redux';
+import OverdriveTimer from '../overdriveTimer/OverdriveTimer';
 
 
 
-const Counter = ({counter, level, increment,decrement,easy, medium, hard}:{
+const Counter = ({counter, level, increment,decrement,easy, medium, hard, overdrive}:{
     counter: any;
     level: any;
     increment: any;
@@ -12,13 +13,17 @@ const Counter = ({counter, level, increment,decrement,easy, medium, hard}:{
     easy: any;
     medium: any;
     hard: any;
+    overdrive:any;
 }) => {
 
     return (
-
-    <div id = "counter"><p>{counter}</p></div>
+    
+    <div id = "counter">
+            {overdrive&&<OverdriveTimer/>}
+            <p>{counter}</p>
+            </div>
 )}
-const mapStateToProps = (state:any) => ({ counter: state.counter.counter as any , level: state.level.level as any});
+const mapStateToProps = (state:any) => ({ counter: state.counter.counter as any , level: state.level.level as any, overdrive: state.counter.overdrive});
 const mapDispatchToProps = (dispatch:any) => {
     return {
       // dispatching plain actions

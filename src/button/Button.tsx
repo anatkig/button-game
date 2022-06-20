@@ -3,7 +3,7 @@ import './button.css';
 import { connect } from 'react-redux';
 import { useRef } from 'react';
 
-const Button =  ({counter, level, increment,decrement,easy, medium, hard}:{
+const Button =  ({counter, level, increment,decrement,easy, medium, hard, addStar}:{
     counter: any;
     level: any;
     increment: any;
@@ -11,6 +11,7 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard}:{
     easy: any;
     medium: any;
     hard: any;
+    addStar: any;
 }) => {
 
     const savedTimeout = useRef({} as NodeJS.Timeout);
@@ -23,7 +24,7 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard}:{
         const interval = setInterval(()=>{
           
             decrement();
-            innerCounter--;
+            --innerCounter;
 
        if(innerCounter < 0) {
       
@@ -35,7 +36,11 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard}:{
     }
 
     const handleClick = ()=>{
-         increment()
+         increment();
+
+         if(counter%10===0&&counter!==0) {
+            addStar();
+         }
 
         clearTimeout(savedTimeout.current);
 
@@ -58,7 +63,8 @@ const mapDispatchToProps = (dispatch:any) => {
       decrement: () => dispatch({ type: 'DECREMENT' }),
       easy: () => dispatch({ type: 'EASY' }),
       medium: () => dispatch({ type: 'MEDIUM' }),
-      hard: () => dispatch({ type: 'HARD' })
+      hard: () => dispatch({ type: 'HARD' }),
+      addStar: () => dispatch({type: 'ADD_STAR'})
     }
   }
 

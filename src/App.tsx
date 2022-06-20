@@ -3,6 +3,7 @@ import './App.css';
 import Button from './button/Button';
 import Counter from './counter/Counter';
 import Switcher from './switcher/Switcher';
+import StarBox from './starBox/StarBox';
 import { Provider } from 'react-redux'
 import store from './redux/store';
 
@@ -14,6 +15,7 @@ function App() {
       </header>
       <Provider store = {store}>
       <main id ="main">
+      <StarBox/>
       <Counter/>
       <Button/>
       <Switcher/>

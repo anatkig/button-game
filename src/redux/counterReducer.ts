@@ -14,7 +14,7 @@ const counter = (state = initialState, action: any) => {
 
       if (lastClickTimes[2] - lastClickTimes[0] <= 1000) {
         return { ...state };
-      } else if (overdriveEvent === 1) {
+      } else if (overdriveEvent === 1 || state.overdrive) {
         return { ...state, counter: state.counter + 2, overdrive: true };
       } else return { ...state, counter: state.counter + 1 };
     }

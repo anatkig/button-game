@@ -1,0 +1,19 @@
+#switcher {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 5vh;
+}
+
+#switcher span{
+    font-size: 2rem;
+    margin: 1px 4px;
+    padding: 5px;  
+    background-color: lightblue;
+    border-radius: 10%;
+}
+
+#switcher div {
+    margin: 10px 0;
+}

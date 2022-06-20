@@ -3,7 +3,7 @@ import './counter.css';
 
 
 const Counter = () => (
-    <div id= "counter">Counter</div>
+    <div id = "counter"><p>0</p></div>
 )
 
 

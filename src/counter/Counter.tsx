@@ -3,18 +3,30 @@ import './counter.css';
 import { connect } from 'react-redux';
 
 
-const Counter = (counter:any, level:any) => (
-    <div id = "counter"><p>0</p></div>
-)
-const mapStateToProps = (state:any) => ({ counter: state.counter, level: state.level });
+
+const Counter = ({counter, level, increment,decrement,easy, medium, hard}:{
+    counter: any;
+    level: any;
+    increment: any;
+    decrement: any;
+    easy: any;
+    medium: any;
+    hard: any;
+}) => {
+
+    return (
+
+    <div id = "counter"><p>{counter}</p></div>
+)}
+const mapStateToProps = (state:any) => ({ counter: state.counter.counter as any , level: state.level.level as any});
 const mapDispatchToProps = (dispatch:any) => {
     return {
       // dispatching plain actions
-      increment: () => dispatch({ type: 'INCREMENT' }),
-      decrement: () => dispatch({ type: 'DECREMENT' }),
-      easy: () => dispatch({ type: 'EASY' }),
-      medium: () => dispatch({ type: 'MEDIUM' }),
-      hard: () => dispatch({ type: 'HARD' })
+      increment: () => dispatch({ type: 'INCREMENT' }) as any,
+      decrement: () => dispatch({ type: 'DECREMENT' }) as any,
+      easy: () => dispatch({ type: 'EASY' }) as any,
+      medium: () => dispatch({ type: 'MEDIUM' }) as any,
+      hard: () => dispatch({ type: 'HARD' }) as any
     }
   }
 

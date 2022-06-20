@@ -2,15 +2,23 @@ import React from 'react';
 import './button.css';
 import { connect } from 'react-redux';
 
-const Button = (counter:any, level:any) => (
+const Button =  ({counter, level, increment,decrement,easy, medium, hard}:{
+    counter: any;
+    level: any;
+    increment: any;
+    decrement: any;
+    easy: any;
+    medium: any;
+    hard: any;
+}) => (
     <div id = "button">
         
-        <button>Button</button>
+        <button onClick={increment}>Button</button>
         
         </div>
 )
 
-const mapStateToProps = (state:any) => ({ counter: state.counter, level: state.level });
+const mapStateToProps = (state:any) => ({ counter: state.counter.counter, level: state.level.level });
 const mapDispatchToProps = (dispatch:any) => {
     return {
       // dispatching plain actions

@@ -10,6 +10,9 @@ const counter = (state = initialState, action: any) => {
     case 'DECREMENT': {
       return { ...state, counter: state.counter - 1 };
     }
+    default: {
+      return { ...state };
+    }
   }
 };
 

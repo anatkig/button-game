@@ -7,6 +7,15 @@ const reducer = combineReducers({
   level
 });
 
-const store = configureStore({ reducer });
+const preloadedState = {
+  counter: {
+    counter: 0
+  },
+  level: {
+    level: 'EASY'
+  }
+};
+
+const store = configureStore({ reducer, preloadedState });
 
 export default store;

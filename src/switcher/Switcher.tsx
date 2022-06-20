@@ -3,7 +3,15 @@ import './switcher.css';
 import { connect } from 'react-redux';
 
 
-const Switcher = (counter:any, level:any) => (
+const Switcher =  ({counter, level, increment,decrement,easy, medium, hard}:{
+    counter: any;
+    level: any;
+    increment: any;
+    decrement: any;
+    easy: any;
+    medium: any;
+    hard: any;
+}) => (
     <div id= "switcher">
         <div>Choose the level</div>
     <div>
@@ -12,7 +20,7 @@ const Switcher = (counter:any, level:any) => (
     </div>
 )
 
-const mapStateToProps = (state:any) => ({ counter: state.counter, level: state.level });
+const mapStateToProps = (state:any) => ({ counter: state.counter.counter, level: state.level.level });
 const mapDispatchToProps = (dispatch:any) => {
     return {
       // dispatching plain actions

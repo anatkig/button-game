@@ -13,6 +13,9 @@ const level = (state = initialState, action: any) => {
     case 'HARD': {
       return { ...state, level: 'HARD' };
     }
+    default: {
+      return { ...state };
+    }
   }
 };
 

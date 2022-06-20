@@ -1,10 +1,10 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import counterReducer from './counterReducer';
-import levelReducer from './levelReducer';
+import counter from './counterReducer';
+import level from './levelReducer';
 
 const reducer = combineReducers({
-  counterReducer,
-  levelReducer
+  counter,
+  level
 });
 
 const store = configureStore({ reducer });

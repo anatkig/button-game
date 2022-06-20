@@ -1,19 +1,19 @@
 const initialState = {
-  level: 'easy'
+  level: 'EASY'
 };
 
-const levelReducer = (state = initialState, action) => {
+const level = (state = initialState, action: any) => {
   switch (action.type) {
-    case 'easy': {
-      return { ...state, level: 'easy' };
+    case 'EASY': {
+      return { ...state, level: 'EASY' };
     }
-    case 'medium': {
-      return { ...state, level: 'medium' };
+    case 'MEDIUM': {
+      return { ...state, level: 'MEDIUM' };
     }
-    case 'hard': {
-      return { ...state, level: 'hard' };
+    case 'HARD': {
+      return { ...state, level: 'HARD' };
     }
   }
 };
 
-export default levelReducer;
+export default level;

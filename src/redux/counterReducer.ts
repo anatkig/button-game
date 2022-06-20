@@ -2,15 +2,15 @@ const initialState = {
   counter: 0
 };
 
-const counterReducer = (state = initialState, action) => {
+const counter = (state = initialState, action: any) => {
   switch (action.type) {
-    case 'increment': {
+    case 'INCREMENT': {
       return { ...state, counter: state.counter + 1 };
     }
-    case 'decrement': {
+    case 'DECREMENT': {
       return { ...state, counter: state.counter - 1 };
     }
   }
 };
 
-export default counterReducer;
+export default counter;

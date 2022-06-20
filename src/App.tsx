@@ -10,9 +10,11 @@ function App() {
       <header className="App-header">
      <div>Button Game</div>
       </header>
+      <main id ="main">
       <Counter/>
       <Button/>
       <Switcher/>
+      </main>
     </div>
   );
 }

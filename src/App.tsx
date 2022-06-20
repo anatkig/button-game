@@ -1,6 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Button from './button/Button';
+import Counter from './counter/Counter';
+import Switcher from './switcher/Switcher';
 
 function App() {
   return (
@@ -8,6 +10,9 @@ function App() {
       <header className="App-header">
      <div>Button Game</div>
       </header>
+      <Counter/>
+      <Button/>
+      <Switcher/>
     </div>
   );
 }

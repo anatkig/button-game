@@ -3,6 +3,7 @@ import { MouseEventHandler } from 'react';
 import './switcher.css';
 import { connect } from 'react-redux';
 import { State, AppDispatch } from '../types/types';
+import { EASY, MEDIUM, HARD } from '../constants/constants';
 
 const Switcher = ({
   level,
@@ -22,21 +23,21 @@ const Switcher = ({
         <span
           className='level app-button'
           onClick={easy}
-          style={{ backgroundColor: level === 'EASY' ? 'pink' : undefined }}
+          style={{ backgroundColor: level === EASY ? 'pink' : undefined }}
         >
           Easy
         </span>
         <span
           className='level app-button'
           onClick={medium}
-          style={{ backgroundColor: level === 'MEDIUM' ? 'pink' : undefined }}
+          style={{ backgroundColor: level === MEDIUM ? 'pink' : undefined }}
         >
           Medium
         </span>
         <span
           className='level app-button'
           onClick={hard}
-          style={{ backgroundColor: level === 'HARD' ? 'pink' : undefined }}
+          style={{ backgroundColor: level === HARD ? 'pink' : undefined }}
         >
           Hard
         </span>

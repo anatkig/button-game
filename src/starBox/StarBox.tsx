@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { ReactComponent as Star } from '../assets/star.svg';
 import { useEffect, useRef } from 'react';
 import { State, AppDispatch } from '../types/types';
+import { ADD_STAR } from '../constants/constants';
 
 const StarBox = ({
   stars,
@@ -11,7 +12,7 @@ const StarBox = ({
 }: {
   stars: string[];
   counter: number;
-  addStar: Function;
+  addStar: ()=> { type: string; };
 }) => {
     const innerCounter = useRef(0);
 
@@ -36,7 +37,7 @@ const mapStateToProps = (state: State) => ({
   counter: state.counter.counter
 });
 const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  addStar: () => dispatch({ type: 'ADD_STAR' })
+  addStar: () => dispatch({ type: ADD_STAR })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StarBox);

@@ -9,7 +9,7 @@ const OverdriveTimer = ({
   cancelOverdrive,
   level
 }: {
-  cancelOverdrive: Function;
+  cancelOverdrive: ()=> { type: string; };
   level: string;
 }) => {
   const [seconds, setSeconds] = useState(

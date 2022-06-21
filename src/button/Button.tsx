@@ -15,9 +15,9 @@ const Button = ({
 }: {
   counter: number;
   level: string;
-  increment: Function;
-  decrement: Function;
-  setOverdrive: Function;
+  increment: ()=> { type: string; };
+  decrement: ()=> { type: string; };
+  setOverdrive: ()=> { type: string; };
 }) => {
   const savedTimeout = useRef({} as NodeJS.Timeout);
   const clickTimes = useRef([] as number[]);

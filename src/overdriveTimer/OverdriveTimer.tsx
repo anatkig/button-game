@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 
 
 
-const OverdriveTimer = ({canselOverdrive}:{canselOverdrive:any}) => {
+const OverdriveTimer = ({canselOverdrive, level}:{canselOverdrive:any, level:any}) => {
   
-    const [seconds, setSeconds] = useState(10);
+    const [seconds, setSeconds] = useState(level === "EASY" ? 15: level === "MEDIUM" ? 10 : 5);
   
 
     useEffect(()=>{

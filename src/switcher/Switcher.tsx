@@ -11,15 +11,19 @@ const Switcher =  ({counter, level, increment,decrement,easy, medium, hard}:{
     easy: any;
     medium: any;
     hard: any;
-}) => (
+}) => {
+
+    return (
     <div id= "switcher">
         <div>Choose the level</div>
     <div>
-        <span>Easy</span><span>Medium</span><span>Hard</span>
+        <span className='level' onClick={easy} style={{backgroundColor:level==="EASY"?"pink":undefined}}>Easy</span>
+        <span className='level' onClick={medium} style={{backgroundColor:level==="MEDIUM"?"pink":undefined}}>Medium</span>
+        <span className='level' onClick={hard} style={{backgroundColor:level==="HARD"?"pink":undefined}}>Hard</span>
     </div>
     </div>
 )
-
+    }
 const mapStateToProps = (state:any) => ({ counter: state.counter.counter, level: state.level.level });
 const mapDispatchToProps = (dispatch:any) => {
     return {

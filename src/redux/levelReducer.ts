@@ -1,5 +1,5 @@
 const initialState = {
-  level: 'EASY'
+  level: 'MEDIUM'
 };
 
 const level = (state = initialState, action: any) => {

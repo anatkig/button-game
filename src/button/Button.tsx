@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.css';
 import { connect } from 'react-redux';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const Button =  ({counter, level, increment,decrement,easy, medium, hard, addStar, overdrive, setOverdrive}:{
     counter: any;
@@ -19,21 +19,28 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard, addSta
     const savedTimeout = useRef({} as NodeJS.Timeout);
     const clickTimes = useRef([] as number[]);
     const [buttonBackground, setButtonBackground] = useState("lightgreen");
+    const [countdown, setCountDown]  = useState(false);
+
+    useEffect(()=>{
+        if(countdown) {
+            setButtonBackground("orange");
+        const interval = counter>0&&setInterval(()=>{
+             decrement();
+        if(counter < 0) {
+         setButtonBackground ("lightgreen");
+        }
+         },1000);
+
+         if(counter===0) setButtonBackground ("lightgreen");
+         
+         return () => {
+            clearInterval(interval as any);
+        };
+        }
+    }
+    ,[countdown, counter, decrement])
  
 
-    const handleDecrement = () => {
-        setButtonBackground("orange");
-        let innerCounter = counter;
-
-        const interval = setInterval(()=>{
-            decrement();
-            --innerCounter;
-       if(innerCounter < 0) {
-        setButtonBackground ("lightgreen");
-        clearInterval(interval)
-       }
-        },1000);
-    }
 
     const handleClick = ()=>{
 
@@ -58,21 +65,18 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard, addSta
 
 if(lastClickTimes.length===1||!(lastClickTimes[lastClickTimes.length - 1] - lastClickTimes[0] <= 1000)) {
 
-     if (overdriveEvent === 1 || overdrive) {
+     if (overdriveEvent === 1) {
          setOverdrive();
-         increment();
-         increment();
      }
-         increment();
-    
-
+        increment();
+        
          if(counter%10===0&&counter!==0) {
             addStar();
          }
 
         clearTimeout(savedTimeout.current);
 
-        const timeout = setTimeout(handleDecrement,10000);
+        const timeout = setTimeout(()=>setCountDown(true),10000);
         savedTimeout.current=timeout;
         }
     }

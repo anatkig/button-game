@@ -6,8 +6,11 @@ const initialState = {
 const counter = (state = initialState, action: any) => {
   switch (action.type) {
     case 'INCREMENT': {
-      return { ...state, counter: state.counter + 1 };
+      if (state.overdrive) {
+        return { ...state, counter: state.counter + 2 };
+      } else return { ...state, counter: state.counter + 1 };
     }
+
     case 'DECREMENT': {
       return { ...state, counter: state.counter - 1 };
     }

@@ -1,8 +1,10 @@
+import { Action } from '../types/types';
+
 const initialState = {
   level: 'MEDIUM'
 };
 
-const level = (state = initialState, action: any) => {
+const level = (state = initialState, action: Action) => {
   switch (action.type) {
     case 'EASY': {
       return { ...state, level: 'EASY' };

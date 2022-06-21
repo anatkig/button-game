@@ -1,9 +1,11 @@
+import { Action } from '../types/types';
+
 const initialState = {
   counter: 0,
   overdrive: false
 };
 
-const counter = (state = initialState, action: any) => {
+const counter = (state = initialState, action: Action) => {
   switch (action.type) {
     case 'INCREMENT': {
       if (state.overdrive) {

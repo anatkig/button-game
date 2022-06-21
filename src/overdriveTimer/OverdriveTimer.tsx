@@ -1,40 +1,39 @@
 import React from 'react';
 import './overdriveTimer.css';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { State, AppDispatch } from '../types/types';
 
+const OverdriveTimer = ({
+  canselOverdrive,
+  level
+}: {
+  canselOverdrive: Function;
+  level: string;
+}) => {
+  const [seconds, setSeconds] = useState(
+    level === 'EASY' ? 15 : level === 'MEDIUM' ? 10 : 5
+  );
 
+  useEffect(() => {
+    const timer =
+      seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
+    seconds <= 0 && canselOverdrive();
+    return () => clearInterval(timer as NodeJS.Timer);
+  }, [seconds, canselOverdrive]);
 
-const OverdriveTimer = ({canselOverdrive, level}:{canselOverdrive:any, level:any}) => {
-  
-    const [seconds, setSeconds] = useState(level === "EASY" ? 15: level === "MEDIUM" ? 10 : 5);
-  
+  return (
+    <div id='overdrive-timer'>
+      <p>{seconds}</p>
+    </div>
+  );
+};
 
-    useEffect(()=>{
-        const timer = seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
-        seconds<=0&&canselOverdrive();
-      return () => 
-        clearInterval(timer as any);
-    }, [seconds, canselOverdrive]);
-  
+const mapStateToProps = (state: State) => ({
+  level: state.level.level
+});
+const mapDispatchToProps = (dispatch: AppDispatch) => ({
+  canselOverdrive: () => dispatch({ type: 'CANSEL_OVERDRIVE' })
+});
 
-
-    return (
-        <div id="overdrive-timer">
-
-           <p>{seconds}</p>
-
-        </div>
-    )
-}
-
-const mapStateToProps = (state:any) => ({ counter: state.counter.counter as any , level: state.level.level as any});
-const mapDispatchToProps = (dispatch:any) => {
-    return {
-      // dispatching plain actions
-      canselOverdrive: () => dispatch({ type: 'CANSEL_OVERDRIVE' }) as any,
-    
-    }
-  }
-
-export default connect(mapStateToProps,mapDispatchToProps)(OverdriveTimer);
+export default connect(mapStateToProps, mapDispatchToProps)(OverdriveTimer);

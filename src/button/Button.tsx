@@ -32,7 +32,7 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard, addSta
          },1000);
 
          if(counter===0) setButtonBackground ("lightgreen");
-         
+
          return () => {
             clearInterval(interval as any);
         };
@@ -70,10 +70,6 @@ if(lastClickTimes.length===1||!(lastClickTimes[lastClickTimes.length - 1] - last
      }
         increment();
         
-         if(counter%10===0&&counter!==0) {
-            addStar();
-         }
-
         clearTimeout(savedTimeout.current);
 
         const timeout = setTimeout(()=>setCountDown(true),10000);

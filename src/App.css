@@ -17,6 +17,13 @@
   color: #61dafb;
 }
 
+.app-button {
+    margin: 1px 4px;
+    padding: 5px;  
+    border-radius: 10%;
+    cursor: pointer;
+}
+
 #main {
   font-size: 2rem;
   min-height: 60vh;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.css';
 import { connect } from 'react-redux';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const Button =  ({counter, level, increment,decrement,easy, medium, hard, addStar, overdrive, setOverdrive}:{
     counter: any;
@@ -17,17 +17,19 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard, addSta
 }) => {
 
     const savedTimeout = useRef({} as NodeJS.Timeout);
-    const clickTimes = useRef([] as number[])
+    const clickTimes = useRef([] as number[]);
+    const [buttonBackground, setButtonBackground] = useState("lightgreen");
  
 
     const handleDecrement = () => {
-    
+        setButtonBackground("orange");
         let innerCounter = counter;
 
         const interval = setInterval(()=>{
             decrement();
             --innerCounter;
        if(innerCounter < 0) {
+        setButtonBackground ("lightgreen");
         clearInterval(interval)
        }
         },1000);
@@ -52,11 +54,9 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard, addSta
         const overdriveEvent = Math.floor(Math.random() * overdriveChance) + 1;
 
         clickTimes.current.push(Date.now());
-        const lastClickTimes = clickTimes.current.slice(clickTimes.current.length - numClickSecond);
+        const lastClickTimes = clickTimes.current.slice(clickTimes.current.length - numClickSecond-1);
 
-        if(!(lastClickTimes[lastClickTimes.length - 1] - lastClickTimes[0] <= 1000)) {
-
-         
+if(lastClickTimes.length===1||!(lastClickTimes[lastClickTimes.length - 1] - lastClickTimes[0] <= 1000)) {
 
      if (overdriveEvent === 1 || overdrive) {
          setOverdrive();
@@ -79,7 +79,7 @@ const Button =  ({counter, level, increment,decrement,easy, medium, hard, addSta
  
     return (
     <div id = "button">
-        <button onClick={handleClick}>Button</button>
+        <button className='app-button' onClick={handleClick} style = {{backgroundColor: buttonBackground }}>Button</button>
     </div>
 )}
 

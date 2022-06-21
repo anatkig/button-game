@@ -17,9 +17,9 @@ const Switcher =  ({counter, level, increment,decrement,easy, medium, hard}:{
     <div id= "switcher">
         <div>Choose the level</div>
     <div>
-        <span className='level' onClick={easy} style={{backgroundColor:level==="EASY"?"pink":undefined}}>Easy</span>
-        <span className='level' onClick={medium} style={{backgroundColor:level==="MEDIUM"?"pink":undefined}}>Medium</span>
-        <span className='level' onClick={hard} style={{backgroundColor:level==="HARD"?"pink":undefined}}>Hard</span>
+        <span className='level app-button' onClick={easy} style={{backgroundColor:level==="EASY"?"pink":undefined}}>Easy</span>
+        <span className='level app-button' onClick={medium} style={{backgroundColor:level==="MEDIUM"?"pink":undefined}}>Medium</span>
+        <span className='level app-button' onClick={hard} style={{backgroundColor:level==="HARD"?"pink":undefined}}>Hard</span>
     </div>
     </div>
 )

@@ -3,24 +3,25 @@ import './overdriveTimer.css';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { State, AppDispatch } from '../types/types';
+import { EASY,MEDIUM, CANCEL_OVERDRIVE } from '../constants/constants';
 
 const OverdriveTimer = ({
-  canselOverdrive,
+  cancelOverdrive,
   level
 }: {
-  canselOverdrive: Function;
+  cancelOverdrive: Function;
   level: string;
 }) => {
   const [seconds, setSeconds] = useState(
-    level === 'EASY' ? 15 : level === 'MEDIUM' ? 10 : 5
+    level === EASY ? 15 : level === MEDIUM ? 10 : 5
   );
 
   useEffect(() => {
     const timer =
       seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
-    seconds <= 0 && canselOverdrive();
+    seconds <= 0 && cancelOverdrive();
     return () => clearInterval(timer as NodeJS.Timer);
-  }, [seconds, canselOverdrive]);
+  }, [seconds, cancelOverdrive]);
 
   return (
     <div id='overdrive-timer'>
@@ -33,7 +34,7 @@ const mapStateToProps = (state: State) => ({
   level: state.level.level
 });
 const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  canselOverdrive: () => dispatch({ type: 'CANSEL_OVERDRIVE' })
+  cancelOverdrive: () => dispatch({ type: CANCEL_OVERDRIVE })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(OverdriveTimer);

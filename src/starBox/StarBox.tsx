@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ReactComponent as Star } from '../assets/star.svg';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { State, AppDispatch } from '../types/types';
 
 const StarBox = ({
@@ -13,8 +13,13 @@ const StarBox = ({
   counter: number;
   addStar: Function;
 }) => {
+    const innerCounter = useRef(0);
+
   useEffect(() => {
-    if (counter % 10 === 0 && counter !== 0) addStar();
+    if (Math.floor(counter / 10) > innerCounter.current && counter !== 0) {
+        addStar();
+        innerCounter.current = Math.floor(counter/10);
+    };
   }, [counter, addStar]);
 
   return (

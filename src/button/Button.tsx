@@ -3,13 +3,15 @@ import './button.css';
 import { connect } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import { State, AppDispatch } from '../types/types';
+import { EASY, MEDIUM, HARD, ADD_STAR, INCREMENT, DECREMENT, SET_OVERDRIVE } from '../constants/constants';
 
 const Button = ({
   counter,
   level,
   increment,
   decrement,
-  setOverdrive
+  setOverdrive,
+
 }: {
   counter: number;
   level: string;
@@ -46,13 +48,13 @@ const Button = ({
     let overdriveChance = 10;
     let numClickSecond = 3;
 
-    if (level === 'EASY') {
+    if (level === EASY) {
       overdriveChance = 3;
       numClickSecond = 5;
-    } else if (level === 'MEDIUM') {
+    } else if (level === MEDIUM) {
       overdriveChance = 10;
       numClickSecond = 3;
-    } else if (level === 'HARD') {
+    } else if (level === HARD) {
       overdriveChance = 20;
       numClickSecond = 1;
     }
@@ -64,8 +66,7 @@ const Button = ({
       clickTimes.current.length - numClickSecond - 1
     );
 
-    if (
-      lastClickTimes.length === 1 ||
+      if(lastClickTimes.length <numClickSecond || 
       !(lastClickTimes[lastClickTimes.length - 1] - lastClickTimes[0] <= 1000)
     ) {
       if (overdriveEvent === 1) {
@@ -101,9 +102,9 @@ const mapStateToProps = (state: State) => ({
 const mapDispatchToProps = (dispatch: AppDispatch) => {
   return {
     // dispatching plain actions
-    increment: () => dispatch({ type: 'INCREMENT' }),
-    decrement: () => dispatch({ type: 'DECREMENT' }),
-    setOverdrive: () => dispatch({ type: 'SET_OVERDRIVE' })
+    increment: () => dispatch({ type: INCREMENT }),
+    decrement: () => dispatch({ type: DECREMENT }),
+    setOverdrive: () => dispatch({ type: SET_OVERDRIVE }),
   };
 };
 

@@ -1,4 +1,4 @@
-import Button from '../button/Button';
+import ButtonContainer from '../button-container/ButtonContainer';
 import Counter from '../counter/Counter';
 import Switcher from '../switcher/Switcher';
 import StarBox from '../starBox/StarBox';
@@ -12,7 +12,7 @@ const Main = ({ overdrive }: { overdrive: boolean }) => {
       {overdrive && <OverdriveTimer />}
       <StarBox />
       <Counter />
-      <Button />
+      <ButtonContainer />
       <Switcher />
     </main>
   );

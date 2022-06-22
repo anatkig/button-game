@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../button/Button';
 import Counter from '../counter/Counter';
 import Switcher from '../switcher/Switcher';

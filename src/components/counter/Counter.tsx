@@ -1,4 +1,3 @@
-import React from 'react';
 import './counter.css';
 import { connect } from 'react-redux';
 import { State } from '../../types/types';

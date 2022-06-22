@@ -2,3 +2,6 @@
     font-size: 2rem;
     cursor: pointer;
 }
+#button button:active {
+    transform: scale(1.1);
+}

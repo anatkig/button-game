@@ -3,7 +3,7 @@ import './button.css';
 import { connect } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import { State, AppDispatch } from '../types/types';
-import { EASY, MEDIUM, HARD, ADD_STAR, INCREMENT, DECREMENT, SET_OVERDRIVE } from '../constants/constants';
+import { EASY, MEDIUM, HARD, INCREMENT, DECREMENT, SET_OVERDRIVE } from '../constants/constants';
 
 const Button = ({
   counter,

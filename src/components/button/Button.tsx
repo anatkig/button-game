@@ -3,21 +3,27 @@ import './button.css';
 import { connect } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import { State, AppDispatch } from '../../types/types';
-import { EASY, MEDIUM, HARD, INCREMENT, DECREMENT, SET_OVERDRIVE } from '../../constants/constants';
+import {
+  EASY,
+  MEDIUM,
+  HARD,
+  INCREMENT,
+  DECREMENT,
+  SET_OVERDRIVE
+} from '../../constants/constants';
 
 const Button = ({
   counter,
   level,
   increment,
   decrement,
-  setOverdrive,
-
+  setOverdrive
 }: {
   counter: number;
   level: string;
-  increment: ()=> { type: string; };
-  decrement: ()=> { type: string; };
-  setOverdrive: ()=> { type: string; };
+  increment: () => { type: string };
+  decrement: () => { type: string };
+  setOverdrive: () => { type: string };
 }) => {
   const savedTimeout = useRef({} as NodeJS.Timeout);
   const clickTimes = useRef([] as number[]);
@@ -36,7 +42,10 @@ const Button = ({
           }
         }, 1000);
 
-      if (counter === 0) setButtonBackground('lightgreen');
+      if (counter === 0) {
+        setButtonBackground('lightgreen');
+        setCountDown(false);
+      }
 
       return () => {
         clearInterval(interval as NodeJS.Timer);
@@ -66,7 +75,8 @@ const Button = ({
       clickTimes.current.length - numClickSecond - 1
     );
 
-      if(lastClickTimes.length <numClickSecond || 
+    if (
+      lastClickTimes.length < numClickSecond ||
       !(lastClickTimes[lastClickTimes.length - 1] - lastClickTimes[0] <= 1000)
     ) {
       if (overdriveEvent === 1) {
@@ -96,14 +106,14 @@ const Button = ({
 
 const mapStateToProps = (state: State) => ({
   counter: state.counter.counter,
-  level: state.level.level,
+  level: state.level.level
 });
 
 const mapDispatchToProps = (dispatch: AppDispatch) => {
   return {
     increment: () => dispatch({ type: INCREMENT }),
     decrement: () => dispatch({ type: DECREMENT }),
-    setOverdrive: () => dispatch({ type: SET_OVERDRIVE }),
+    setOverdrive: () => dispatch({ type: SET_OVERDRIVE })
   };
 };
 

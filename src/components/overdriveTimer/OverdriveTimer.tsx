@@ -1,15 +1,14 @@
-import React from 'react';
 import './overdriveTimer.css';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { State, AppDispatch } from '../../types/types';
-import { EASY,MEDIUM, CANCEL_OVERDRIVE } from '../../constants/constants';
+import { EASY, MEDIUM, CANCEL_OVERDRIVE } from '../../constants/constants';
 
 const OverdriveTimer = ({
   cancelOverdrive,
   level
 }: {
-  cancelOverdrive: ()=> { type: string; };
+  cancelOverdrive: () => { type: string };
   level: string;
 }) => {
   const [seconds, setSeconds] = useState(

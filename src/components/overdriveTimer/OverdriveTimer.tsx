@@ -2,8 +2,8 @@ import React from 'react';
 import './overdriveTimer.css';
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { State, AppDispatch } from '../types/types';
-import { EASY,MEDIUM, CANCEL_OVERDRIVE } from '../constants/constants';
+import { State, AppDispatch } from '../../types/types';
+import { EASY,MEDIUM, CANCEL_OVERDRIVE } from '../../constants/constants';
 
 const OverdriveTimer = ({
   cancelOverdrive,

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ReactComponent as Star } from '../assets/star.svg';
+import { ReactComponent as Star } from '../../assets/star.svg';
 import { useEffect, useRef } from 'react';
-import { State, AppDispatch } from '../types/types';
-import { ADD_STAR } from '../constants/constants';
+import { State, AppDispatch } from '../../types/types';
+import { ADD_STAR } from '../../constants/constants';
 
 const StarBox = ({
   stars,

@@ -2,8 +2,8 @@ import React from 'react';
 import './button.css';
 import { connect } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
-import { State, AppDispatch } from '../types/types';
-import { EASY, MEDIUM, HARD, INCREMENT, DECREMENT, SET_OVERDRIVE } from '../constants/constants';
+import { State, AppDispatch } from '../../types/types';
+import { EASY, MEDIUM, HARD, INCREMENT, DECREMENT, SET_OVERDRIVE } from '../../constants/constants';
 
 const Button = ({
   counter,
@@ -101,7 +101,6 @@ const mapStateToProps = (state: State) => ({
 
 const mapDispatchToProps = (dispatch: AppDispatch) => {
   return {
-    // dispatching plain actions
     increment: () => dispatch({ type: INCREMENT }),
     decrement: () => dispatch({ type: DECREMENT }),
     setOverdrive: () => dispatch({ type: SET_OVERDRIVE }),

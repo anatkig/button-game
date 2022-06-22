@@ -2,8 +2,8 @@ import React from 'react';
 import { MouseEventHandler } from 'react';
 import './switcher.css';
 import { connect } from 'react-redux';
-import { State, AppDispatch } from '../types/types';
-import { EASY, MEDIUM, HARD } from '../constants/constants';
+import { State, AppDispatch } from '../../types/types';
+import { EASY, MEDIUM, HARD } from '../../constants/constants';
 
 const Switcher = ({
   level,

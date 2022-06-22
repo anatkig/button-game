@@ -2,7 +2,7 @@ import React from 'react';
 import './counter.css';
 import { connect } from 'react-redux';
 import OverdriveTimer from '../overdriveTimer/OverdriveTimer';
-import { State } from '../types/types';
+import { State } from '../../types/types';
 
 const Counter = ({
   counter,

@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Button from './button/Button';
-import Counter from './counter/Counter';
-import Switcher from './switcher/Switcher';
-import StarBox from './starBox/StarBox';
+import Button from './components/button/Button';
+import Counter from './components/counter/Counter';
+import Switcher from './components/switcher/Switcher';
+import StarBox from './components/starBox/StarBox';
 import { Provider } from 'react-redux'
 import store from './redux/store';
 

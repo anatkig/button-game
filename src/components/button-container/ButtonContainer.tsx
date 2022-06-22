@@ -1,14 +1,16 @@
 import Button from '../button/Button';
 import { connect } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
-import { State, AppDispatch } from '../../types/types';
+import { State, AppDispatch, ButtonBackground } from '../../types/types';
 import {
   EASY,
   MEDIUM,
   HARD,
   INCREMENT,
   DECREMENT,
-  SET_OVERDRIVE
+  SET_OVERDRIVE,
+  BUTTON_DECREMENT_COLOR,
+  BUTTON_INITIAL_COLOR
 } from '../../constants/constants';
 
 const ButtonContainer = ({
@@ -26,23 +28,21 @@ const ButtonContainer = ({
 }) => {
   const savedTimeout = useRef({} as NodeJS.Timeout);
   const clickTimes = useRef([] as number[]);
-  const [buttonBackground, setButtonBackground] = useState('lightgreen');
+  const [buttonBackground, setButtonBackground] =
+    useState<ButtonBackground>(BUTTON_INITIAL_COLOR);
   const [countdown, setCountDown] = useState(false);
 
   useEffect(() => {
     if (countdown) {
-      setButtonBackground('orange');
+      setButtonBackground(BUTTON_DECREMENT_COLOR);
       const interval =
         counter > 0 &&
         setInterval(() => {
           decrement();
-          if (counter < 0) {
-            setButtonBackground('lightgreen');
-          }
         }, 1000);
 
       if (counter === 0) {
-        setButtonBackground('lightgreen');
+        setButtonBackground(BUTTON_INITIAL_COLOR);
         setCountDown(false);
       }
 

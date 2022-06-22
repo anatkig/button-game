@@ -1,11 +1,12 @@
 import './button.css';
+import { ButtonBackground } from '../../types/types';
 
 const Button = ({
   handleClick,
   buttonBackground
 }: {
   handleClick: React.MouseEventHandler<HTMLButtonElement>;
-  buttonBackground: string;
+  buttonBackground: ButtonBackground;
 }) => {
   return (
     <div id='button'>
@@ -14,7 +15,7 @@ const Button = ({
         onClick={handleClick}
         style={{ backgroundColor: buttonBackground }}
       >
-        Button
+        Press
       </button>
     </div>
   );

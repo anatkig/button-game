@@ -16,3 +16,4 @@ export interface Action {
 }
 
 export type AppDispatch = typeof store.dispatch;
+export type ButtonBackground = 'lightgreen' | 'orange';

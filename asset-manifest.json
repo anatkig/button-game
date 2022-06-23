@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/button-game/static/css/main.38bf419c.css",
-    "main.js": "/button-game/static/js/main.40bea700.js",
+    "main.css": "/button-game/static/css/main.4cce1669.css",
+    "main.js": "/button-game/static/js/main.679679fa.js",
     "static/js/787.bddf4bc7.chunk.js": "/button-game/static/js/787.bddf4bc7.chunk.js",
-    "static/media/star.svg": "/button-game/static/media/star.84bd821506bbbac7120d2491451da838.svg",
+    "static/media/star.svg": "/button-game/static/media/star.81ab0ed27b62af7319bbc0e1b38a31cf.svg",
     "index.html": "/button-game/index.html",
-    "main.38bf419c.css.map": "/button-game/static/css/main.38bf419c.css.map",
-    "main.40bea700.js.map": "/button-game/static/js/main.40bea700.js.map",
+    "main.4cce1669.css.map": "/button-game/static/css/main.4cce1669.css.map",
+    "main.679679fa.js.map": "/button-game/static/js/main.679679fa.js.map",
     "787.bddf4bc7.chunk.js.map": "/button-game/static/js/787.bddf4bc7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.38bf419c.css",
-    "static/js/main.40bea700.js"
+    "static/css/main.4cce1669.css",
+    "static/js/main.679679fa.js"
   ]
 }

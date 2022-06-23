@@ -25,7 +25,9 @@ const StarBox = ({
   return (
     <div id='star-box'>
       {stars.map((star: string, ind: number) => (
-        <Star key={star + ind} />
+        <span title={star} key={star + ind}>
+          <Star />
+        </span>
       ))}
     </div>
   );

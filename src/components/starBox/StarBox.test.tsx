@@ -12,7 +12,7 @@ describe('Tests for StarBox component', () => {
         <StarBox />
       </Provider>
     );
-
+    // the component is completely empty initially
     expect(document.getElementById('star-box')).toBeInTheDocument();
   });
 

@@ -11,7 +11,6 @@ describe('Tests for Counter component', () => {
         <Counter />
       </Provider>
     );
-    const counterText = new RegExp(/\d/i);
-    expect(screen.getByText(counterText)).toBeInTheDocument();
+    expect(screen.getByText(/\d/i)).toBeInTheDocument();
   });
 });

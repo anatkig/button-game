@@ -9,6 +9,9 @@ https://anatkig.github.io/button-game
 5. The click limit depends on the level.
 6. If you don't click the Press button for 10 seconds, the counter starts to decrement at the rate of 1 per second.
 7. When the counter is in decrement mode, it changes color.
+8. When the counter reaches any multiple of ten, you are given a star.
+9. The stars appear above the counter.
+10.When the counter decrements, the stars don't disappear.
 
 ## Overdrive
 1. Overdrive means - each click  incrementsby 2  insead of one.
